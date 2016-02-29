@@ -1,21 +1,27 @@
 var https = require('https'),
  	pem = require('pem'),
  	express = require('express');
-
-var httpProxy = require('http-proxy');
 var app = express();
 var bodyParser = require('body-parser');
+var fs = require('fs');
+
 var PORT = process.env.PORT || 3000;
+var HOST = '192.168.1.46';
+var environment = process.env.NODE_ENV || 'development';
+var pkey = fs.readFileSync('key.pem');
+var pcert = fs.readFileSync('cert.pem');
+
 var todos = [];
 var todoNextId = 1;
 
-var HOST = '192.168.1.46';
+var options = {
+    key: pkey,
+    cert: pcert
+};
 
-var environment = process.env.NODE_ENV || 'development';
+if (environment === 'developemnt') {
 
-if(environment === 'developemnt') {
-
-	pem.createCertificate({days:1, selfSigned:true}, function(err, keys){
+	/*pem.createCertificate({days:1, selfSigned:true}, function(err, keys){
 		var options = {
 				// host: "192.168.1.46",
 				//hostname: 'www.todo-api.com',
@@ -23,10 +29,13 @@ if(environment === 'developemnt') {
 				cert: keys.certificate 
 	    	};
 		https.createServer(options, app).listen(PORT, HOST);
-	});
+	});*/
+
+	https.createServer(options, app).listen(PORT, HOST);
 
 } else {
-	pem.createCertificate({days:365, selfSigned:true}, function(err, keys){
+
+	/*pem.createCertificate({days:365, selfSigned:true}, function(err, keys){
 		var options = {
 				// host: "192.168.1.46",
 				//hostname: 'www.todo-api.com',
@@ -34,7 +43,9 @@ if(environment === 'developemnt') {
 				cert: keys.certificate 
 	    	};
 		https.createServer(options, app).listen(PORT);
-	});
+	});*/
+
+	https.createServer(options, app).listen(PORT);
 }
 
 
