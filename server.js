@@ -52,7 +52,12 @@ if (environment === 'developemnt') {
 // When json request comes in express parse it to json & we can access req.body
 app.use(bodyParser.json())
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect(['https://', req.get('Host'), req.url].join(''));
+    }
+    return next();
+ }, function(req, res) {
 	res.send('Todo api root');
 });
 
