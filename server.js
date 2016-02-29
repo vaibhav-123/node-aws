@@ -45,9 +45,9 @@ if (environment === 'developemnt') {
 		https.createServer(options, app).listen(PORT);
 	});*/
 
-	https.createServer(options, app).listen(PORT);
+	//https.createServer(options, app).listen(PORT);
+	app.listen(PORT);	
 }
-
 
 // When json request comes in express parse it to json & we can access req.body
 app.use(bodyParser.json())
