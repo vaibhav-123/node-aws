@@ -1,0 +1,20 @@
+<h2>Shopping Items :</h2>
+<!-- <input type="text" ng-model='customerId'> -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Prize</th>
+    <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="order in orders">
+        <td>{{ order.id }}</td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.prize | currency }}</td>
+        <td><a ng-click="addTocart(customerId, order)">Add to Cart</a></td>
+    </tr>
+  </tbody>
+</table>

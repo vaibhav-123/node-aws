@@ -1,0 +1,33 @@
+<h2>Shopping Cart Items :</h2>
+<div class="row">
+    <div class="col-md-2">
+        <h4>Customer Name : </h4>
+    </div>
+    <div class="col-md-2">
+        <h4>{{ customerName }}</h4>
+    </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Prize</th>
+    <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="order in customerOrders">
+        <td>{{ order.id }}</td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.prize | currency }}</td>
+        <td><a ng-click="buyItem(customerId, order.id)">Buy</a></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>{{ totalPrize | currency }}</td>
+    </tr>
+  </tbody>
+</table>
