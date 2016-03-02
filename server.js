@@ -91,13 +91,13 @@ if (environment === 'development') {
 }
 
 // When json request comes in express parse it to json & we can access req.body
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
 
-/*app.get('/', function(req, res) {
-	res.send(/main.html);
-});*/
+app.get('/', function(req, res) {
+	res.redirect('/app/views/main.html');
+});
 
 // GET /customers (Get all customers)
 app.get('/getCustomers', function (req, res) {

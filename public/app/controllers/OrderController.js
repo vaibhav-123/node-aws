@@ -11,7 +11,7 @@
 
 		$scope.orders = [{
 			id: 1,
-			name: "shoe",
+			name: "Shoe",
 			prize: 40
 		},{
 			id: 2,
@@ -19,7 +19,7 @@
 			prize: 20
 		},{
 			id: 3,
-			name: "mobile",
+			name: "Mobile",
 			prize: 50
 		},
 		{
@@ -51,10 +51,10 @@
 		$scope.addTocart = function (customerId, order){
 			customerService.placeCustomerOrder(customerId, order).success(function (data){
 				var message = '<strong> Item successfully added to the cart !</strong>';
-    			Flash.create('success', message, 0, {class: 'custom-class', id: 'custom-id'}, true);
+    			Flash.create('success', message, 2000, {class: 'custom-class', id: 'custom-id'}, true);
 			}).error(function(data,  status){
 				var message = '<strong> Item already added to the cart !</strong>';
-    			Flash.create('danger', message, 0, {class: 'custom-class', id: 'custom-id'}, true);	
+    			Flash.create('danger', message, 2000, {class: 'custom-class', id: 'custom-id'}, true);	
 			})
 		}
 

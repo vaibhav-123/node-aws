@@ -5,27 +5,27 @@ myApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/customers', {
-        templateUrl: 'customers.html',
+        templateUrl: '/app/views/customers.html',
         controller: 'CustomerController'
       }).
       when('/placeOrders/:customerId', {
-        templateUrl: 'placeOrders.html',
+        templateUrl: '/app/views/placeOrders.html',
         controller: 'OrderController'
       }).
       when('/signUp', {
-        templateUrl: 'signUp.html',
+        templateUrl: '/app/views/signUp.html',
         controller: 'LoginController'
       }).
       when('/login', {
-        templateUrl: 'login.html',
+        templateUrl: '/app/views/login.html',
         controller: 'LoginController'
       }).
       when('/customerOrders/:customerId', {
-        templateUrl: 'orders.html',
+        templateUrl: '/app/views/orders.html',
         controller: 'OrderController'
       }).
       otherwise({
-        redirectTo: '/main.html'
+        redirectTo: '/app/views/main.html'
       });
 }]);
 

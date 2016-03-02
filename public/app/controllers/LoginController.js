@@ -12,8 +12,8 @@
 			}).then(function successCallback(response) {
 				$location.path('/login');
 			}, function errorCallback(error) {
-				var message = '<strong> SignUp Failed may be email already exist!</strong>';
-    			Flash.create('danger', message, 0, {class: 'custom-class', id: 'custom-id'}, true);
+				var message = '<strong> SignUp Failed !!!!! email already exist!</strong>';
+    			Flash.create('danger', message, 2000, {class: 'custom-class', id: 'custom-id'}, true);
 			});
 	    };
 
@@ -26,7 +26,7 @@
 				$location.path('/placeOrders/'+ response.data);
 			}, function errorCallback(error) {
 				var message = '<strong> Login Failed !</strong>';
-    			Flash.create('danger', message, 0, {class: 'custom-class', id: 'custom-id'}, true);
+    			Flash.create('danger', message, 2000, {class: 'custom-class', id: 'custom-id'}, true);
 			});
 	    }
 	});
